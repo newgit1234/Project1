@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacked Info</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: #00ff00;
+            font-family: "Courier New", monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .terminal {
+            width: 90%;
+            max-width: 400px;
+            border: 2px solid #00ff00;
+            padding: 20px;
+            box-shadow: 0 0 15px #00ff00;
+        }
+        .output {
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: #00ff00;
+            margin-left: 2px;
+            animation: blink 0.5s step-start infinite;
+        }
+        @keyframes blink {
+            50% {
+                background-color: black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div id="output" class="output"></div>
+        <div class="cursor"></div>
+    </div>
+
+    <script>
+        const data = `
+=============================
+>>> RETRIEVING PERSONAL DATA... <<<
+
+>> Gender      : Male
+>> Date of Birth: 26-Sep-2005
+>> Father's Name: Dipak Boro
+>> Occupation   : Peon
+>> Contact      : 81359-89264
+>> Mother's Name: Mukuta Boro
+>> Occupation   : Home Maker
+>> Contact      : 76380-08694
+
+>>> DATA EXFILTRATION SUCCESSFUL <<<
+=============================
+[ CONNECTION TERMINATED ]`;
+
+        const outputDiv = document.getElementById("output");
+        let index = 0;
+
+        function typeText() {
+            if (index < data.length) {
+                outputDiv.textContent += data[index];
+                index++;
+                setTimeout(typeText, 50); // Adjust typing speed here
+            }
+        }
+
+        // Start typing effect
+        typeText();
+    </script>
+</body>
+</html>
