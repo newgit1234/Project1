@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Interface</title>
+    <link rel="stylesheet" href="wpStyle.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>WhatsApp</h1>
+            <br>
+            <input type="text" placeholder="Search...">
+        </div>
+        <button onclick="showChatList()" class="active">Chats</button>
+        <button onclick="setActive(this)">Status</button>
+        <button onclick="setActive(this)">Calls</button>
+        <button onclick="openSettings()">Settings</button>
+        <button onclick="setActive(this)">Communities</button>
+    </div>
+    <div class="chat-list" id="chatList">
+        <div class="chat-item" onclick="openChat('John Doe')">
+            <div class="profile-pic"></div>
+            <div>
+                <strong>John Doe</strong>
+                <p>Hey! Are you free today?</p>
+                <span>Last chatted: 10 mins ago</span>
+            </div>
+        </div>
+        <div class="chat-item" onclick="openChat('Mia Derek')">
+            <div class="profile-pic"></div>
+            <div>
+                <strong>Mia Derek</strong>
+                <p>What's up?</p>
+                <span>Last chatted: 2 hours ago</span>
+            </div>
+        </div>
+        <div class="chat-item" onclick="openChat('Adam Smith')">
+            <div class="profile-pic"></div>
+            <div>
+                <strong>Adam Smith</strong>
+                <p>Let's catch up soon!</p>
+                <span>Last chatted: Yesterday</span>
+            </div>
+        </div>
+    </div>
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="profile-pic"></div>
+            <strong id="chatName">Chat Name</strong>
+        </div>
+        <div class="messages" id="messages">
+            
+        </div>
+        <div class="input-container">
+            <label for="fileInput">+</label>
+            <input type="file" id="fileInput">
+            <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off" >
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <div class="settings-window" id="settingsWindow">
+        <div class="settings-content">
+            <label>Enter to send
+            </label>
+            <button id="onOroff"><span></span></button>
+        </div>
+        <button onclick="closeSettings()">Close</button>
+    </div>
+</body>
+<script src="wpScript.js">
+
+</script>
+
+</html>
